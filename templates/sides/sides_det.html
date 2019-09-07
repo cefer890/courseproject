@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    {{block.super}}
+  <link href="vendor/bootstrap/css/bootstrap1.min.css" rel="stylesheet">
+  {% endblock %}
+
+
+
+{% block content %}
+<br>
+<br>
+
+
+    <h1><center>{{sides_det.title}}</center></h1>
+
+    <h4>{{sides_det.desc|safe}}</h4>
+
+<br>
+    {% if sides_det.image%}}
+    <img src="{{sides_det.image.url}}" width="250px" height="250px">
+    {% endif %}
+<br>
+
+    <h6>{{sides_det.contact_email|safe}}</h6>
+
+    <h6>{{sides_det.url|safe}}</h6>
+
+    <a href="{% url 'sides_list' %}">Sides sehfesine qayit</a>
+
+    <a href="{% url 'sides_delete' sides_det.id %}">Sides sil</a>
+
+
+{% endblock %}
+
+  {% block js-block %}
+  {% endblock %}

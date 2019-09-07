@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    {{block.super}}
+  <link href="vendor/bootstrap/css/bootstrap1.min.css" rel="stylesheet">
+  {% endblock %}
+
+
+
+{% block content %}
+<br>
+<br>
+<br>
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="{{last_sides.image.url}}" alt="">
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="font-weight-light">{{last_sides.title}}</h1>
+        <p>{{last_sides.desc}}</p>
+        <a class="btn btn-primary" href="{% url 'sides_det' last_sides.id %}">Call to Action!</a>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      {% for sides in sides_list%}
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{sides.title}}</h2>
+            <p class="card-text">{{sides.desc}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'sides_det' sides.id %}" class="btn btn-primary btn-sm">More Info</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <h1>Embahome</h1>
+    <div class="row">
+      {% for side in embahome %}
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">{{side.title}}</h2>
+            <p class="card-text">{{side.desc}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'sides_det' side.id %}" class="btn btn-primary btn-sm">More Info</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+{% endblock %}
+
+  {% block js-block %}
+  {% endblock %}

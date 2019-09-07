@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        {% for xiomi_list in xiomi_det%}
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ xiomi_list.cover.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{xiomi_list.title}}</h5>
+            <p class="card-text">{{xiomi_list.desc}}.</p>
+            <a href="{% url 'xiomi_det' xiomi_list.id %}" class="btn btn-primary">Go somewhere</a>
+          </div>
+            </div>
+        </div>
+        <div style="padding:10px"></div>
+        {% endfor %}
+    </div>
+
+    <h1>Xeberler</h1>
+    <div class="container-fluid">
+        {% for xiomi_list in news%}
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ xiomi_list.cover.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{xiomi_list.title}}</h5>
+            <p class="card-text">{{xiomi_list.desc}}.</p>
+            <a href="{% url 'news_det' xiomi_list.id %}" class="btn btn-primary">Go somewhere</a>
+          </div>
+            </div>
+        </div>
+        <div style="padding:10px"></div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

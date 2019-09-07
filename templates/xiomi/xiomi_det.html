@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    h4 { color:green}
+</style>
+
+
+    <h1><center>{{xiomi_det.title}}</center></h1>
+
+    <h4><em>{{xiomi_det.desc|safe}}</em></h4>
+
+    <h4><em>{{xiomi_det.des|safe}}</em></h4>
+
+    <h4><em>{{xiomi_det.de|safe}}</em></h4>
+
+    <h4><em>{{xiomi_det.d|safe}}</em></h4>
+    <br><hr>
+    {% if xiomi_det.cover%}}
+    <img src="{{xiomi_det.cover.url}}" width="250px" height="250px">
+    {% endif %}
+
+    <h4>{{xiomi_det.view_count}}</h4>
+
+
+
+</body>
+</html>
