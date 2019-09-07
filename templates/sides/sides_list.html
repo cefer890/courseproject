@@ -36,40 +36,30 @@
         <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
       </div>
     </div>
-
     <!-- Content Row -->
     <div class="row">
       {% for sides in sides_list%}
+      <h1>{{ forloop.counter}}</h1>
+      {% if forloop.counter|divisibleby:"3" %}
+        <h1>salam</h1>
+      {% endif %}
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-body">
             <h2 class="card-title">{{sides.title}}</h2>
-            <p class="card-text">{{sides.desc}}</p>
+            <p class="card-text">{{sides.desc|truncatechars:"10"}}</p>
+            <!--<p class="card-text">{{sides.desc|truncatewords:"10"}}</p>-->
           </div>
+          <p>{{sides.created_at|date:"D d M Y"}}</p>
           <div class="card-footer">
             <a href="{% url 'sides_det' sides.id %}" class="btn btn-primary btn-sm">More Info</a>
           </div>
         </div>
       </div>
+      {% empty %}
+      <h1>Data yoxdur</h1>
       {% endfor %}
     </div>
-    <h1>Embahome</h1>
-    <div class="row">
-      {% for side in embahome %}
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="card-body">
-            <h2 class="card-title">{{side.title}}</h2>
-            <p class="card-text">{{side.desc}}</p>
-          </div>
-          <div class="card-footer">
-            <a href="{% url 'sides_det' side.id %}" class="btn btn-primary btn-sm">More Info</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    <!-- /.row -->
 
   </div>
   <!-- /.container -->
